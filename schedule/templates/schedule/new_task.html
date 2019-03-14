@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+	</script>
+<h1>Schedule list</h1>
+<h2>Create a new task</h2>
+<form class="site-form" action="{% url 'new_task' %}" method="post" name="my_form">
+	{% csrf_token %}
+	<dt>
+	<input type="textarea" name="title">
+	<input type="date" name="start_time">
+	<input type="date" name="end_time">
+	<input type="submit" value="Add" name="submit">
+</dt>
+
+	
+</form>
+<script type="text/javascript">
+	var index="{{task_id}}"
+	var "{{form.title}}"=document.forms["my_form"]["title"].value;
+	var "{{form.start_time}}"=document.forms["my_form"]["start_time"].value;
+	var "{{form.end_time}}"=document.forms["my_form"]["end_time"].value;
+</script>
+
+{% endblock %}
